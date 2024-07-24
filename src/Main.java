@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void leapYear(int year) {
         if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
@@ -8,16 +10,15 @@ public class Main {
     }
 
     public static void systemPhone(int clientOS, int clientDeviceYear) {
-        if (clientOS == 0 && clientDeviceYear <= 2015) {
+        int currentYear = LocalDate.now().getYear();
+        if (clientOS == 0 && clientDeviceYear <= currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (clientOS == 1 && clientDeviceYear > 2015) {
+        } else if (clientOS == 1 && clientDeviceYear > currentYear) {
             System.out.println("Установите новую версию приложения для Android по ссылке");
-        } else if (clientOS == 1 && clientDeviceYear < 2015) {
+        } else if (clientOS == 1 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        } else if (clientOS == 0 && clientDeviceYear > 2015) {
+        } else if (clientOS == 0 && clientDeviceYear > currentYear) {
             System.out.println("Установите новую версию приложения для iOS по ссылке");
-        } else {
-            System.out.println("На вашем устройстве последняя версия приложения");
         }
 
     }
